@@ -1,3 +1,4 @@
+import os
 import zipfile
 import pandas as pd
 
@@ -8,5 +9,10 @@ df_wine_countries_summary = df_wine_countries_count_points.sort_values("count", 
 
 #df_wine_countries_summary
 #a dataframe requires an index (default or not), the index can be removed/hidden in the function where you are writing to a file.
-df_wine_countries_summary.to_csv('reviews-per-country.csv', index=False)
+
+#to write file to different folder from file directory
+path = 'C:/Users/Aliyah Gant/Documents/Projects/wine-reviews-exercise-amgant/data'
+output_file = os.path.join(path,'reviews-per-country.csv')
+
+df_wine_countries_summary.to_csv(output_file, index=False)
 
